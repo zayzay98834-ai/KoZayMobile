@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ကိုဇေ မိုဘိုင်း</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;500;600;700;800&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:#eef1f5;
+    color:#16181d;
+    font-family:"Noto Sans Myanmar",sans-serif;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.app{
+    max-width:480px;
+    min-height:100vh;
+    margin:auto;
+    background:#f5f6f8;
+    padding-bottom:90px;
+}
+
+/* HEADER */
+
+.header{
+    padding:20px 18px 28px;
+    background:linear-gradient(135deg,#111827,#263244);
+    color:#fff;
+    border-radius:0 0 26px 26px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.shop{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.logo{
+    width:45px;
+    height:45px;
+    border-radius:14px;
+    background:#facc15;
+    color:#111827;
+    display:grid;
+    place-items:center;
+    font-size:23px;
+}
+
+.shop h1{
+    font-size:18px;
+}
+
+.shop small{
+    display:block;
+    color:#aeb7c5;
+    font-size:9px;
+    margin-top:2px;
+}
+
+.bell{
+    width:41px;
+    height:41px;
+    border:1px solid #ffffff25;
+    background:#ffffff12;
+    color:#fff;
+    border-radius:12px;
+    font-size:18px;
+}
+
+.welcome{
+    margin-top:25px;
+}
+
+.welcome small{
+    color:#aeb7c5;
+    font-size:11px;
+}
+
+.welcome h2{
+    margin-top:5px;
+    font-size:21px;
+}
+
+/* REPAIR */
+
+.repair{
+    margin:18px;
+    margin-top:-2px;
+    padding:20px;
+    border-radius:21px;
+    background:#fff;
+    box-shadow:0 8px 25px #0000000b;
+}
+
+.repair-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.repair-head h3{
+    font-size:15px;
+}
+
+.status{
+    white-space:nowrap;
+    padding:6px 10px;
+    border-radius:20px;
+    background:#fff7cc;
+    color:#a16207;
+    font-size:9px;
+    font-weight:700;
+}
+
+.device{
+    display:flex;
+    gap:13px;
+    align-items:center;
+    margin-top:18px;
+}
+
+.device-icon{
+    width:53px;
+    height:53px;
+    border-radius:15px;
+    background:#eef2ff;
+    display:grid;
+    place-items:center;
+    font-size:27px;
+}
+
+.device h4{
+    font-size:15px;
+}
+
+.device p{
+    color:#858b96;
+    font-size:10px;
+    margin-top:4px;
+}
+
+/* PROGRESS */
+
+.progress{
+    margin-top:22px;
+}
+
+.progress-line{
+    height:5px;
+    border-radius:10px;
+    background:#e5e7eb;
+    position:relative;
+}
+
+.progress-line::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:62%;
+    height:100%;
+    border-radius:10px;
+    background:#facc15;
+}
+
+.steps{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+
+.step{
+    text-align:center;
+    font-size:8px;
+    color:#999;
+}
+
+.step.active{
+    color:#111827;
+    font-weight:700;
+}
+
+.repair-btn{
+    width:100%;
+    margin-top:18px;
+    padding:13px;
+    border:0;
+    border-radius:12px;
+    background:#111827;
+    color:#fff;
+    font-weight:600;
+}
+
+/* SECTION */
+
+.section{
+    padding:0 18px;
+    margin-top:25px;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.section-title h3{
+    font-size:16px;
+}
+
+.section-title span{
+    color:#737b87;
+    font-size:10px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+}
+
+.service{
+    background:#fff;
+    border:0;
+    border-radius:15px;
+    padding:13px 5px;
+    box-shadow:0 5px 18px #00000007;
+}
+
+.service-icon{
+    font-size:23px;
+}
+
+.service p{
+    margin-top:7px;
+    font-size:9px;
+}
+
+/* QUICK */
+
+.quick{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.quick-card{
+    padding:17px;
+    background:#fff;
+    border-radius:17px;
+    border:1px solid #edf0f3;
+}
+
+.quick-card b{
+    display:block;
+    font-size:12px;
+}
+
+.quick-card span{
+    display:block;
+    margin-top:7px;
+    color:#7c8490;
+    font-size:9px;
+    line-height:1.6;
+}
+
+/* CONTACT */
+
+.contact{
+    margin-top:20px;
+    padding:18px;
+    background:#111827;
+    color:#fff;
+    border-radius:18px;
+}
+
+.contact h3{
+    font-size:15px;
+}
+
+.contact p{
+    margin-top:6px;
+    color:#aeb7c5;
+    font-size:10px;
+}
+
+.contact button{
+    margin-top:13px;
+    padding:10px 14px;
+    border:0;
+    border-radius:9px;
+    background:#facc15;
+    color:#111827;
+    font-weight:700;
+}
+
+/* NAV */
+
+.nav{
+    position:fixed;
+    z-index:100;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:min(480px,100%);
+    height:72px;
+    background:#ffffffed;
+    backdrop-filter:blur(15px);
+    border-top:1px solid #e6e8ec;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.nav-item{
+    width:20%;
+    color:#8b919b;
+    text-align:center;
+    font-size:8px;
+}
+
+.nav-item span{
+    display:block;
+    font-size:19px;
+    margin-bottom:3px;
+}
+
+.nav-item.active{
+    color:#111827;
+}
+
+.nav-center{
+    width:53px;
+    height:53px;
+    border-radius:18px;
+    background:#facc15;
+    color:#111827;
+    display:grid;
+    place-items:center;
+    font-size:25px;
+    margin-top:-22px;
+    box-shadow:0 8px 20px #facc1540;
+}
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:200;
+    inset:0;
+    background:#0008;
+    align-items:flex-end;
+    justify-content:center;
+}
+
+.modal-box{
+    width:min(480px,100%);
+    background:#fff;
+    border-radius:25px 25px 0 0;
+    padding:24px 20px 35px;
+}
+
+.modal-box h2{
+    font-size:18px;
+}
+
+.modal-box p{
+    color:#777;
+    font-size:11px;
+    margin-top:6px;
+}
+
+.input{
+    width:100%;
+    margin-top:12px;
+    padding:13px;
+    border:1px solid #ddd;
+    border-radius:11px;
+    outline:none;
+    font-family:inherit;
+}
+
+.input:focus{
+    border-color:#facc15;
+}
+
+.modal-submit{
+    width:100%;
+    margin-top:14px;
+    padding:13px;
+    border:0;
+    border-radius:11px;
+    background:#111827;
+    color:#fff;
+    font-weight:700;
+}
+
+.close{
+    width:100%;
+    margin-top:8px;
+    padding:11px;
+    border:0;
+    background:#f1f2f4;
+    border-radius:11px;
+}
+
+@media(min-width:700px){
+
+    body{
+        padding:25px 0;
+    }
+
+    .app{
+        border-radius:25px;
+        overflow:hidden;
+        box-shadow:0 20px 70px #0002;
+    }
+
+    .nav{
+        border-radius:0 0 25px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="top">
+
+        <div class="shop">
+
+            <div class="logo">🔧</div>
+
+            <div>
+                <h1>ကိုဇေ မိုဘိုင်း</h1>
+                <small>PHONE REPAIR CENTER</small>
+            </div>
+
+        </div>
+
+        <button class="bell"
+                onclick="notification()">
+            🔔
+        </button>
+
+    </div>
+
+    <div class="welcome">
+
+        <small>မင်္ဂလာပါ 👋</small>
+
+        <h2>ကိုဇေ မိုဘိုင်းမှ ကြိုဆိုပါတယ်</h2>
+
+    </div>
+
+</header>
+
+
+<!-- CURRENT REPAIR -->
+
+<section class="repair">
+
+    <div class="repair-head">
+
+        <h3>🔧 လက်ရှိပြင်ဆင်နေသောဖုန်း</h3>
+
+        <span class="status">
+            ပြင်ဆင်နေဆဲ
+        </span>
+
+    </div>
+
+    <div class="device">
+
+        <div class="device-icon">📱</div>
+
+        <div>
+
+            <h4>iPhone 13 Pro</h4>
+
+            <p>
+                Screen ပြဿနာ • #KZ-1024
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="progress">
+
+        <div class="progress-line"></div>
+
+        <div class="steps">
+
+            <div class="step active">
+                ✓<br>လက်ခံပြီး
+            </div>
+
+            <div class="step active">
+                ✓<br>စစ်ဆေးပြီး
+            </div>
+
+            <div class="step active">
+                🔧<br>ပြင်ဆင်နေ
+            </div>
+
+            <div class="step">
+                ○<br>ပြီးပါပြီ
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="repair-btn"
+            onclick="showRepair()">
+        အသေးစိတ်ကြည့်မည် →
+    </button>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h3>ဝန်ဆောင်မှုများ</h3>
+
+        <span>အားလုံးကြည့်မည် ›</span>
+
+    </div>
+
+    <div class="services">
+
+        <button class="service">
+            <div class="service-icon">📱</div>
+            <p>Screen</p>
+        </button>
+
+        <button class="service">
+            <div class="service-icon">🔋</div>
+            <p>Battery</p>
+        </button>
+
+        <button class="service">
+            <div class="service-icon">⚡</div>
+            <p>Charging</p>
+        </button>
+
+        <button class="service">
+            <div class="service-icon">💧</div>
+            <p>ရေဝင်</p>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK ACTION -->
+
+<section class="section">
+
+    <div class="section-title">
+        <h3>အမြန်လုပ်ဆောင်ရန်</h3>
+    </div>
+
+    <div class="quick">
+
+        <div class="quick-card"
+             onclick="newRepair()">
+
+            <b>🔧 ဖုန်းပြင်အပ်မည်</b>
+
+            <span>
+                ဖုန်းပြဿနာကို ကြိုတင်ပို့ပါ
+            </span>
+
+        </div>
+
+        <div class="quick-card"
+             onclick="contactShop()">
+
+            <b>☎️ ဆိုင်ကိုဆက်သွယ်ရန်</b>
+
+            <span>
+                ဖုန်း / Messenger
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SHOP INFO -->
+
+<section class="section">
+
+    <div class="section-title">
+        <h3>ဆိုင်အချက်အလက်</h3>
+    </div>
+
+    <div class="quick">
+
+        <div class="quick-card">
+
+            <b>📍 လိပ်စာ</b>
+
+            <span>
+                ညောင်စာရေးမြို့
+            </span>
+
+        </div>
+
+        <div class="quick-card">
+
+            <b>🕘 ဖွင့်ချိန်</b>
+
+            <span>
+                9:00 AM – 8:00 PM
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="contact">
+
+        <h3>ကိုဇေ မိုဘိုင်း</h3>
+
+        <p>
+            ဖုန်းပြင်ဆိုင်နှင့် နည်းပညာဝန်ဆောင်မှု
+        </p>
+
+        <button onclick="contactShop()">
+            ဆိုင်ကို ဆက်သွယ်မည်
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="nav">
+
+    <div class="nav-item active"
+         onclick="home()">
+        <span>⌂</span>
+        ပင်မ
+    </div>
+
+    <div class="nav-item"
+         onclick="showRepair()">
+        <span>🔧</span>
+        ပြင်ဆင်မှု
+    </div>
+
+    <div class="nav-center"
+         onclick="newRepair()">
+        +
+    </div>
+
+    <div class="nav-item"
+         onclick="chat()">
+        <span>💬</span>
+        Chat
+    </div>
+
+    <div class="nav-item"
+         onclick="account()">
+        <span>👤</span>
+        အကောင့်
+    </div>
+
+</nav>
+
+</div>
+
+
+<!-- REPAIR MODAL -->
+
+<div id="repairModal"
+     class="modal"
+     onclick="closeOutside(event)">
+
+    <div class="modal-box">
+
+        <h2>🔧 ဖုန်းပြင်အပ်မည်</h2>
+
+        <p>
+            ဖုန်းအချက်အလက်ကို ဖြည့်ပြီး ဆိုင်သို့ပို့ပါ။
+        </p>
+
+        <input
+            id="phoneModel"
+            class="input"
+            placeholder="ဖုန်း Model">
+
+        <input
+            id="problem"
+            class="input"
+            placeholder="ဖြစ်နေသောပြဿနာ">
+
+        <input
+            id="customerPhone"
+            class="input"
+            placeholder="ဆက်သွယ်ရန်ဖုန်း">
+
+        <button
+            class="modal-submit"
+            onclick="submitRepair()">
+            Repair Request ပို့မည်
+        </button>
+
+        <button
+            class="close"
+            onclick="closeModal()">
+            ပိတ်မည်
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function showRepair(){
+
+    alert(
+        "🔧 iPhone 13 Pro\n\n" +
+        "Repair No: KZ-1024\n" +
+        "ပြဿနာ: Screen\n" +
+        "အခြေအနေ: ပြင်ဆင်နေဆဲ\n\n" +
+        "ဆိုင်မှ အခြေအနေ Update ပေးပါမည်။"
+    );
+
+}
+
+function newRepair(){
+
+    document.getElementById("repairModal")
+        .style.display = "flex";
+
+}
+
+function closeModal(){
+
+    document.getElementById("repairModal")
+        .style.display = "none";
+
+}
+
+function closeOutside(event){
+
+    if(event.target.id === "repairModal"){
+        closeModal();
+    }
+
+}
+
+function submitRepair(){
+
+    const model =
+        document.getElementById("phoneModel").value;
+
+    const problem =
+        document.getElementById("problem").value;
+
+    const phone =
+        document.getElementById("customerPhone").value;
+
+    if(!model || !problem || !phone){
+
+        alert("အချက်အလက်အားလုံး ဖြည့်ပေးပါ။");
+
+        return;
+
+    }
+
+    alert(
+        "✅ Repair Request ပို့ပြီးပါပြီ။\n\n" +
+        "Model: " + model + "\n" +
+        "ပြဿနာ: " + problem + "\n" +
+        "ဖုန်း: " + phone
+    );
+
+    closeModal();
+
+}
+
+function contactShop(){
+
+    alert(
+        "☎️ ကိုဇေ မိုဘိုင်း\n\n" +
+        "ဆိုင်ဖုန်း — 09xxxxxxxxx\n" +
+        "Messenger — Chat"
+    );
+
+}
+
+function notification(){
+
+    alert(
+        "🔔 Notification\n\n" +
+        "လက်ရှိတွင် Notification မရှိသေးပါ။"
+    );
+
+}
+
+function chat(){
+
+    alert(
+        "💬 Chat\n\n" +
+        "ဒီနေရာမှာ Customer နဲ့ ဆိုင် တိုက်ရိုက် Chat လုပ်နိုင်အောင် နောက်ပိုင်းထည့်ပါမယ်။"
+    );
+
+}
+
+function account(){
+
+    alert(
+        "👤 Account\n\n" +
+        "Login / Register System ကို နောက်အဆင့်မှာ ချိတ်ပါမယ်။"
+    );
+
+}
+
+function home(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
